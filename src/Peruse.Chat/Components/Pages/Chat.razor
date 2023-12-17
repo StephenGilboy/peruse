@@ -1,0 +1,78 @@
+@page "/chat"
+@using Azure.AI.OpenAI
+@using Peruse.Chat.ChatFeature
+@rendermode InteractiveServer
+@inject ChatContext ChatContext
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Chat</h1>
+
+<div class="row chat">
+    <div class="col-6">
+    <div class="row chat__messages">
+        @foreach (var message in _messages)
+        {
+            <div class="chat__message">
+                <div class="chat__message__user">@message.role</div>
+                <div class="chat__message__text">@message.message</div>
+            </div>
+        }
+        @if (_loading)
+        {
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        }
+    </div>
+
+    <div class="row chat__input">
+        <textarea class="form-control" rows="3" @bind="_userMessage"></textarea>
+        <button class="btn btn-primary" @onclick="SendMessage">Send</button>
+    </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        @if(!string.IsNullOrEmpty(_errorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @_errorMessage
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    bool _loading = false;
+    string _userMessage = "";
+    string _errorMessage = "";
+    readonly List<(ChatRole role, string message)> _messages = new();
+    
+    /// <summary>
+    /// Send the message to the ChatContext and add the response to the chat
+    /// </summary>
+    public async Task SendMessage()
+    {
+        if(string.IsNullOrEmpty(_userMessage))
+            return;
+        _loading = true;
+        try
+        {
+            var userMessage = _userMessage;
+            _userMessage = string.Empty;
+            _messages.Add((ChatRole.User, userMessage));
+            var response = await ChatContext.SendMessage(userMessage);
+            _messages.Add((ChatRole.Assistant, response));
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+}

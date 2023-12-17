@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peruse.Api", "src\Peruse.Api\Peruse.Api.csproj", "{A250E434-C767-4462-AB1F-78874567579A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peruse.Chat", "src\Peruse.Chat\Peruse.Chat.csproj", "{F5BF4691-A767-4C21-AAEE-B559EDB78DAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A250E434-C767-4462-AB1F-78874567579A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A250E434-C767-4462-AB1F-78874567579A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A250E434-C767-4462-AB1F-78874567579A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A250E434-C767-4462-AB1F-78874567579A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5BF4691-A767-4C21-AAEE-B559EDB78DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5BF4691-A767-4C21-AAEE-B559EDB78DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5BF4691-A767-4C21-AAEE-B559EDB78DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5BF4691-A767-4C21-AAEE-B559EDB78DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
