@@ -1,10 +1,16 @@
 # Peruse
 A REST API wrapper around the [Playwright](https://playwright.dev/) browser automation library to allow AI agents to peruse websites and interact with them using a real browser.
 
+
+View it in action:
+[![Video of Proof of Concept](readme-assets/poc-title-card.png)](https://youtu.be/8pMGZ2m0A6c?si=Wq7tM4VesCCatyIn "Video of Proof of Concept")
+
 ## NOTE: This project is still in the early stages of development and is not yet ready for production use.
 You can go ahead and use it but be aware that:
 - There is NO SECURITY setup yet so anyone can access your API
 - It may crash or not work as expected
+
+
 
 ## Repository Structure
 - `peruse/Peruse.Api` - The REST API
